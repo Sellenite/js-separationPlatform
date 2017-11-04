@@ -2,7 +2,7 @@
  * @Author: Sellenite 
  * @Date: 2017-11-03 19:41:26 
  * @Last Modified by: Sellenite
- * @Last Modified time: 2017-11-04 22:16:57
+ * @Last Modified time: 2017-11-04 23:48:52
  */
 var path = require('path')
 var webpack = require('webpack')
@@ -37,7 +37,7 @@ var config = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'js/[name].js',
-        publicPath: '/dist'
+        publicPath: WEBPACK_ENV === 'dev' ? '/dist/' : ''
     },
     externals: {
         'jquery': 'window.jQuery'
