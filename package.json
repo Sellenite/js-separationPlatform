@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "set WEBPACK_ENV=dev && webpack-dev-server --inline --port 8080",
-    "build": "set WEBPACK_ENV=build && webpack-dev-server --inline --port 8080"
+    "dev": "set WEBPACK_ENV=dev && webpack-dev-server",
+    "online": "set WEBPACK_ENV=build && webpack-dev-server",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",

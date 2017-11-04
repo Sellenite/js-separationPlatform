@@ -2,7 +2,7 @@
  * @Author: Sellenite 
  * @Date: 2017-11-03 19:41:26 
  * @Last Modified by: Sellenite
- * @Last Modified time: 2017-11-04 14:55:11
+ * @Last Modified time: 2017-11-04 22:16:57
  */
 var path = require('path')
 var webpack = require('webpack')
@@ -79,12 +79,20 @@ var config = {
                 }
             }
         ]
+    },
+    devServer: {
+        // 默认就是true，设为false可以变为iframe模式，编译不发生页面刷新
+        inline: true,
+        // 端口，默认8080
+        port: 8080
     }
 };
 
+// 执行 set WEBPACK_ENV=dev && webpack-dev-server会通过的条件
 if ('dev' === WEBPACK_ENV) {
-    // 开发环境下才添加热更新，否则不加，加到都会用到的模块里
-    config.entry.common.push('webpack-dev-server/client?http://localhost:8080/')
+    // 旧版本使用inline方式需要以下语句，这版本默认inline，可以不写
+    // inline的client，目的是使url地址发生变化，新版不用配置
+    // config.entry.common.push('webpack-dev-server/client?http://localhost:8080/')
 }
 
 module.exports = config
