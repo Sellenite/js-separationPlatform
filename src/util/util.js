@@ -1,8 +1,8 @@
 /*
  * @Author: Sellenite 
  * @Date: 2017-11-06 18:54:31 
- * @Last Modified by:   Sellenite 
- * @Last Modified time: 2017-11-06 18:54:31 
+ * @Last Modified by: Sellenite
+ * @Last Modified time: 2017-11-06 23:22:49
  */
 var conf = {
     serverHost: ''
@@ -54,9 +54,36 @@ var util = {
         var result = html.render(data)
         return result
     },
+    // 成功提示
+    successTips: function (msg) {
+        alert(msg || '操作成功')
+    },
+    // 失败提示
+    errorTips: function (err) {
+        alert(err || '操作失败')
+    },
+    // 字段验证
+    validate: function (value, type) {
+        var value = $.trim(value)
+        // 非空
+        if (type === 'require') {
+            return !!value
+        }
+        // 手机号格式验证
+        if (type === 'phone') {
+            return /^1\d{10}$/.test(value)
+        }
+        // 邮箱格式验证
+        if (type === 'emain') {
+            return /^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/.test(value)
+        }
+    },
     doLogin: function () {
         // 带参数，可以根据参数跳回上次请求的页面
         window.location.href = './login.html?redirect=' + encodeURIComponent(window.location.href)
+    },
+    goHome: function () {
+        window.location.href = './index.html'
     }
 }
 

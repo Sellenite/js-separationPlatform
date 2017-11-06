@@ -2,7 +2,7 @@
  * @Author: Sellenite 
  * @Date: 2017-11-03 19:41:26 
  * @Last Modified by: Sellenite
- * @Last Modified time: 2017-11-05 16:09:13
+ * @Last Modified time: 2017-11-06 21:56:04
  */
 var path = require('path')
 var webpack = require('webpack')
@@ -47,7 +47,7 @@ var config = {
         // __filename：   获得当前执行文件的带有完整绝对路径的文件名
         path: path.resolve(__dirname, 'dist'),
         filename: 'js/[name].js',
-        publicPath: WEBPACK_ENV === 'dev' ? '/dist/' : ''
+        publicPath: '/dist/'
     },
     externals: {
         'jquery': 'window.jQuery'
