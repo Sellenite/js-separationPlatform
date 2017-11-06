@@ -2,12 +2,18 @@
  * @Author: Sellenite 
  * @Date: 2017-11-03 19:41:26 
  * @Last Modified by: Sellenite
- * @Last Modified time: 2017-11-04 23:48:52
+ * @Last Modified time: 2017-11-05 16:09:13
  */
 var path = require('path')
 var webpack = require('webpack')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
+
+console.log(__dirname)
+// F:\Workspace\js-separationPlatform
+var testPath = path.resolve(__dirname, 'dist')
+console.log(testPath)
+// F:\Workspace\js-separationPlatform\dist
 
 // 环境变量 dev | build
 // 启动时候加参数定义，启动命令mac和window不太一样
@@ -20,8 +26,10 @@ function getHtmlConfig(name) {
     return {
         template: './src/view/' + name + '.html',
         filename: 'view/' + name + '.html',
+        // js文件插入到body最后
         inject: true,
         hash: true,
+        // 定义js
         chunks: ['common', name]
     }
 }
@@ -35,6 +43,8 @@ var config = {
         'login': ['./src/page/login/index.js']
     },
     output: {
+        // __dirname：    获得当前执行文件所在目录的完整目录名，可以理解为当前项目根目录
+        // __filename：   获得当前执行文件的带有完整绝对路径的文件名
         path: path.resolve(__dirname, 'dist'),
         filename: 'js/[name].js',
         publicPath: WEBPACK_ENV === 'dev' ? '/dist/' : ''
@@ -50,7 +60,7 @@ var config = {
         }),
         // 多个css单独打包插件
         new ExtractTextPlugin("css/[name].css"),
-        // html模板处理
+        // html模板处理，他会自动将link和script读取
         new HtmlWebpackPlugin(getHtmlConfig('index')),
         new HtmlWebpackPlugin(getHtmlConfig('login'))
     ],
@@ -79,6 +89,16 @@ var config = {
                 }
             }
         ]
+    },
+    resolve: {
+        // 配置别名
+        alias: {
+            // __dirname：    获得当前执行文件所在目录的完整目录名，可以理解为当前项目根目录
+            util: __dirname + '/src/util',
+            page: __dirname + '/src/page',
+            service: __dirname + '/src/service',
+            image: __dirname + '/src/image'
+        }
     },
     devServer: {
         // 默认就是true，设为false可以变为iframe模式，编译不发生页面刷新
