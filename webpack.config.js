@@ -2,7 +2,7 @@
  * @Author: Sellenite 
  * @Date: 2017-11-03 19:41:26 
  * @Last Modified by: Sellenite
- * @Last Modified time: 2017-11-06 21:56:04
+ * @Last Modified time: 2017-11-07 22:36:28
  */
 var path = require('path')
 var webpack = require('webpack')
@@ -53,7 +53,8 @@ var config = {
         'jquery': 'window.jQuery'
     },
     plugins: [
-        // 提取公共模块
+        // 提取公共模块，当有两个以上require就会自动提取到base，
+        // 并于common里面的index.js合并成同一个base.js
         new webpack.optimize.CommonsChunkPlugin({
             name: 'common',
             filename: 'js/base.js'
@@ -65,8 +66,7 @@ var config = {
         new HtmlWebpackPlugin(getHtmlConfig('login'))
     ],
     module: {
-        loaders: [
-            {
+        loaders: [{
                 test: /\.css$/,
                 loader: ExtractTextPlugin.extract("css-loader", "style-loader")
             },
@@ -94,6 +94,7 @@ var config = {
         // 配置别名
         alias: {
             // __dirname：    获得当前执行文件所在目录的完整目录名，可以理解为当前项目根目录
+            node_modules: __dirname + '/node_modules',
             util: __dirname + '/src/util',
             page: __dirname + '/src/page',
             service: __dirname + '/src/service',
