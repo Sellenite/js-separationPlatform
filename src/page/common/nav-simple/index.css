@@ -1,0 +1,19 @@
+/*
+ * @Author: Sellenite 
+ * @Date: 2017-11-08 20:54:56 
+ * @Last Modified by: Sellenite
+ * @Last Modified time: 2017-11-08 21:25:57
+ */
+
+.nav-simple {
+    height: 60px;
+    line-height: 60px;
+    border-bottom: 1px solid #ddd;
+    background: #FFF;
+}
+
+.nav-simple .logo {
+    font-size: 26px;
+    font-weight: bold;
+    color: #c60023;
+}

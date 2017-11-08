@@ -2,7 +2,7 @@
  * @Author: Sellenite 
  * @Date: 2017-11-06 18:54:31 
  * @Last Modified by: Sellenite
- * @Last Modified time: 2017-11-07 20:27:15
+ * @Last Modified time: 2017-11-08 22:09:59
  */
 var conf = {
     serverHost: ''
@@ -81,6 +81,10 @@ var util = {
     doLogin: function () {
         // 带参数，可以根据参数跳回上次请求的页面
         window.location.href = './login.html?redirect=' + encodeURIComponent(window.location.href)
+    },
+    doRegister: function () {
+        // 带参数，可以根据参数跳回上次请求的页面
+        window.location.href = './register.html'
     },
     goHome: function () {
         window.location.href = './index.html'
