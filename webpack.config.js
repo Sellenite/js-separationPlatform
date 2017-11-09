@@ -2,7 +2,7 @@
  * @Author: Sellenite 
  * @Date: 2017-11-03 19:41:26 
  * @Last Modified by: Sellenite
- * @Last Modified time: 2017-11-07 22:36:28
+ * @Last Modified time: 2017-11-09 23:02:03
  */
 var path = require('path')
 var webpack = require('webpack')
@@ -87,6 +87,10 @@ var config = {
                     limit: 8192,
                     name: 'resource/fonts/[name].[ext]'
                 }
+            },
+            {
+                test: /\.string$/,
+                loader: 'html-loader'
             }
         ]
     },
