@@ -1,0 +1,27 @@
+/*
+ * @Author: Sellenite 
+ * @Date: 2017-11-09 19:39:48 
+ * @Last Modified by: Sellenite
+ * @Last Modified time: 2017-11-09 19:41:02
+ */
+
+.footer {
+    margin-top: 20px;
+    padding-bottom: 10px;
+}
+
+.footer .links {
+    text-align: center;
+    color: #666;
+    line-height: 30px;
+}
+
+.footer .links .link {
+    padding: 0 10px;
+}
+
+.footer .copyright {
+    text-align: center;
+    color: #666;
+    line-height: 30px;
+}
