@@ -3,7 +3,9 @@
 
 <head>
     <%= require('html-loader!./layout/head-common.html') %>
-        <title>Index</title>
+        <title>
+            <%= htmlWebpackPlugin.options.title %>
+        </title>
 </head>
 
 <body>
