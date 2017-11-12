@@ -2,7 +2,7 @@
  * @Author: Sellenite 
  * @Date: 2017-11-06 18:54:31 
  * @Last Modified by: Sellenite
- * @Last Modified time: 2017-11-12 13:56:45
+ * @Last Modified time: 2017-11-12 17:20:05
  */
 var conf = {
     serverHost: ''
@@ -74,17 +74,17 @@ var util = {
             return /^1\d{10}$/.test(value)
         }
         // 邮箱格式验证
-        if (type === 'emain') {
+        if (type === 'email') {
             return /^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/.test(value)
         }
     },
     doLogin: function () {
         // 带参数，可以根据参数跳回上次请求的页面
-        window.location.href = './login.html?redirect=' + encodeURIComponent(window.location.href)
+        window.location.href = './user-login.html?redirect=' + encodeURIComponent(window.location.href)
     },
     doRegister: function () {
         // 带参数，可以根据参数跳回上次请求的页面
-        window.location.href = './register.html'
+        window.location.href = './user-register.html'
     },
     goHome: function () {
         window.location.href = './index.html'
