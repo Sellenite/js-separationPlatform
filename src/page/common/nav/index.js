@@ -2,7 +2,7 @@
  * @Author: Sellenite 
  * @Date: 2017-11-08 21:43:50 
  * @Last Modified by: Sellenite
- * @Last Modified time: 2017-11-08 23:36:16
+ * @Last Modified time: 2017-11-12 15:35:44
  */
 require('./index.css')
 var util = require('util/util.js')
@@ -24,7 +24,7 @@ var nav = {
             util.doRegister()
         })
         $('.js-logout').on('click', function () {
-            _user.logout(function (res) {
+            _user.logout(function (data, msg) {
                 window.location.reload()
             }, function (err) {
                 util.errorTips(err)
@@ -32,14 +32,14 @@ var nav = {
         })
     },
     loadUserInfo: function () {
-        _user.checkLogin(function (res) {
-            $('.user.not-login').hide().siblings('.user.login').show().find('.username').text(res.username)
+        _user.checkLogin(function (data, msg) {
+            $('.user.not-login').hide().siblings('.user.login').show().find('.username').text(data.username)
         }, function (err) {
             util.errorTips(err)
         })
     },
     loadCartCount: function () {
-        _cart.getCartCount(function (res) {
+        _cart.getCartCount(function (data, msg) {
             $('.nav .cart-count').text(res || 0)
         }, function (err) {
             $('.nav .cart-count').text(0)

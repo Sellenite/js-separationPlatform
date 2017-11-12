@@ -2,7 +2,7 @@
  * @Author: Sellenite 
  * @Date: 2017-11-08 22:11:51 
  * @Last Modified by: Sellenite
- * @Last Modified time: 2017-11-08 23:32:49
+ * @Last Modified time: 2017-11-12 13:44:32
  */
 var util = require('util/util.js')
 
@@ -10,6 +10,15 @@ var _user = {
     checkLogin: function (resolve, reject) {
         util.request({
             url: util.getServerUrl('/user/get_user_info.do'),
+            method: 'POST',
+            success: resolve,
+            error: reject
+        })
+    },
+    login: function (userInfo, resolve, reject) {
+        util.request({
+            url: util.getServerUrl('/user/login.do'),
+            data: userInfo,
             method: 'POST',
             success: resolve,
             error: reject

@@ -2,7 +2,7 @@
  * @Author: Sellenite 
  * @Date: 2017-11-06 18:54:31 
  * @Last Modified by: Sellenite
- * @Last Modified time: 2017-11-08 22:09:59
+ * @Last Modified time: 2017-11-12 13:56:45
  */
 var conf = {
     serverHost: ''
@@ -33,7 +33,7 @@ var util = {
                 }
             },
             error: function (err) {
-                typeof param.success === 'function' && param.error(res.statusText)
+                typeof param.success === 'function' && param.error(err.statusText)
             }
         })
     },

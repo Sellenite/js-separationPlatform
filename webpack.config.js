@@ -2,7 +2,7 @@
  * @Author: Sellenite 
  * @Date: 2017-11-03 19:41:26 
  * @Last Modified by: Sellenite
- * @Last Modified time: 2017-11-10 21:23:51
+ * @Last Modified time: 2017-11-12 15:24:40
  */
 var path = require('path')
 var webpack = require('webpack')
@@ -40,7 +40,8 @@ var config = {
     entry: {
         'common': ['./src/page/common/index.js'],
         'index': ['./src/page/index/index.js'],
-        'login': ['./src/page/login/index.js'],
+        'user-login': ['./src/page/user-login/index.js'],
+        'user-register': ['./src/page/user-register/index.js'],
         'result': ['./src/page/result/index.js']
     },
     output: {
@@ -48,7 +49,8 @@ var config = {
         // __filename：   获得当前执行文件的带有完整绝对路径的文件名
         path: path.resolve(__dirname, 'dist'),
         filename: 'js/[name].js',
-        publicPath: '/dist/'
+        // 用于webpack-dev-server编译存在的内存中，有别于path，编译路径相同
+        publicPath: '/assets/'
     },
     externals: {
         'jquery': 'window.jQuery'
@@ -64,7 +66,8 @@ var config = {
         new ExtractTextPlugin("css/[name].css"),
         // html模板处理，他会自动将link和script读取
         new HtmlWebpackPlugin(getHtmlConfig('index', '首页')),
-        new HtmlWebpackPlugin(getHtmlConfig('login', '用户登录')),
+        new HtmlWebpackPlugin(getHtmlConfig('user-login', '用户登录')),
+        new HtmlWebpackPlugin(getHtmlConfig('user-register', '用户注册')),
         new HtmlWebpackPlugin(getHtmlConfig('result', '操作结果'))
     ],
     module: {
