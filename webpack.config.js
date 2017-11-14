@@ -2,7 +2,7 @@
  * @Author: Sellenite 
  * @Date: 2017-11-03 19:41:26 
  * @Last Modified by: Sellenite
- * @Last Modified time: 2017-11-12 15:24:40
+ * @Last Modified time: 2017-11-14 22:55:29
  */
 var path = require('path')
 var webpack = require('webpack')
@@ -42,11 +42,11 @@ var config = {
         'index': ['./src/page/index/index.js'],
         'user-login': ['./src/page/user-login/index.js'],
         'user-register': ['./src/page/user-register/index.js'],
+        'user-pass-reset': ['./src/page/user-pass-reset/index.js'],
         'result': ['./src/page/result/index.js']
     },
     output: {
-        // __dirname：    获得当前执行文件所在目录的完整目录名，可以理解为当前项目根目录
-        // __filename：   获得当前执行文件的带有完整绝对路径的文件名
+        // __dirname：    获得当前config文件的绝对路径
         path: path.resolve(__dirname, 'dist'),
         filename: 'js/[name].js',
         // 用于webpack-dev-server编译存在的内存中，有别于path，编译路径相同
@@ -68,6 +68,7 @@ var config = {
         new HtmlWebpackPlugin(getHtmlConfig('index', '首页')),
         new HtmlWebpackPlugin(getHtmlConfig('user-login', '用户登录')),
         new HtmlWebpackPlugin(getHtmlConfig('user-register', '用户注册')),
+        new HtmlWebpackPlugin(getHtmlConfig('user-pass-reset', '找回密码')),
         new HtmlWebpackPlugin(getHtmlConfig('result', '操作结果'))
     ],
     module: {
@@ -102,7 +103,7 @@ var config = {
     resolve: {
         // 配置别名
         alias: {
-            // __dirname：    获得当前执行文件所在目录的完整目录名，可以理解为当前项目根目录
+            // __dirname：    获得当前config文件的绝对路径
             node_modules: __dirname + '/node_modules',
             util: __dirname + '/src/util',
             page: __dirname + '/src/page',

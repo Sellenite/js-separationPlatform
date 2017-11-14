@@ -2,7 +2,7 @@
  * @Author: Sellenite 
  * @Date: 2017-11-08 22:11:51 
  * @Last Modified by: Sellenite
- * @Last Modified time: 2017-11-12 17:25:10
+ * @Last Modified time: 2017-11-15 00:12:45
  */
 var util = require('util/util.js')
 
@@ -39,6 +39,35 @@ var _user = {
     login: function (userInfo, resolve, reject) {
         util.request({
             url: util.getServerUrl('/user/login.do'),
+            data: userInfo,
+            method: 'POST',
+            success: resolve,
+            error: reject
+        })
+    },
+    getQuestion: function (username, resolve, reject) {
+        util.request({
+            url: util.getServerUrl('/user/forget_get_question.do'),
+            data: {
+                username: username
+            },
+            method: 'POST',
+            success: resolve,
+            error: reject
+        })
+    },
+    checkAnswer: function (userInfo, resolve, reject) {
+        util.request({
+            url: util.getServerUrl('/user/forget_check_answer.do'),
+            data: userInfo,
+            method: 'POST',
+            success: resolve,
+            error: reject
+        })
+    },
+    resetPassword: function (userInfo, resolve, reject) {
+        util.request({
+            url: util.getServerUrl('/user/forget_reset_password.do'),
             data: userInfo,
             method: 'POST',
             success: resolve,
