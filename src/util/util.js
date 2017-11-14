@@ -2,9 +2,11 @@
  * @Author: Sellenite 
  * @Date: 2017-11-06 18:54:31 
  * @Last Modified by: Sellenite
- * @Last Modified time: 2017-11-12 17:20:05
+ * @Last Modified time: 2017-11-15 00:42:17
  */
 var conf = {
+    // 这里填后台完整域名，由于现在在开发阶段，
+    // 域名默认为前台域名（空字符串），使用charles拦截请求做测试
     serverHost: ''
 }
 
