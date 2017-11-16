@@ -2,7 +2,7 @@
  * @Author: Sellenite 
  * @Date: 2017-11-03 19:41:26 
  * @Last Modified by: Sellenite
- * @Last Modified time: 2017-11-14 22:55:29
+ * @Last Modified time: 2017-11-16 20:41:02
  */
 var path = require('path')
 var webpack = require('webpack')
@@ -43,6 +43,8 @@ var config = {
         'user-login': ['./src/page/user-login/index.js'],
         'user-register': ['./src/page/user-register/index.js'],
         'user-pass-reset': ['./src/page/user-pass-reset/index.js'],
+        'user-center': ['./src/page/user-center/index.js'],
+        'user-center-update': ['./src/page/user-center-update/index.js'],
         'result': ['./src/page/result/index.js']
     },
     output: {
@@ -69,6 +71,8 @@ var config = {
         new HtmlWebpackPlugin(getHtmlConfig('user-login', '用户登录')),
         new HtmlWebpackPlugin(getHtmlConfig('user-register', '用户注册')),
         new HtmlWebpackPlugin(getHtmlConfig('user-pass-reset', '找回密码')),
+        new HtmlWebpackPlugin(getHtmlConfig('user-center', '用户中心')),
+        new HtmlWebpackPlugin(getHtmlConfig('user-center-update', '修改个人信息')),
         new HtmlWebpackPlugin(getHtmlConfig('result', '操作结果'))
     ],
     module: {

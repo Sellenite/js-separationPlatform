@@ -1,13 +1,16 @@
 /*
  * @Author: Sellenite 
- * @Date: 2017-11-12 15:05:41 
+ * @Date: 2017-11-16 20:39:27 
  * @Last Modified by: Sellenite
- * @Last Modified time: 2017-11-16 22:59:56
+ * @Last Modified time: 2017-11-16 23:00:04
  */
-require('./index.css')
-require('page/common/nav-simple/index.js')
-var _user = require('service/user-service.js')
-var util = require('util/util.js')
+require('./index.css');
+require('page/common/nav/index.js');
+require('page/common/header/index.js');
+var navSide = require('page/common/nav-side/index.js');
+var util = require('util/util.js');
+var _user = require('service/user-service.js');
+var template = require('./index.string')
 
 var formError = {
     show: function (err) {
@@ -20,26 +23,23 @@ var formError = {
 
 var page = {
     init: function () {
+        this.onLoad()
         this.bindEvent()
+    },
+    onLoad: function () {
+        navSide.init({
+            name: 'user-center'
+        })
+        this.loadUserInfo()
     },
     bindEvent: function () {
         var _this = this
-        $('#username').on('blur', function () {
-            var username = $.trim($(this).val())
-            if (!username) {
-                return
-            }
-            _user.checkUsername(username, function (data, msg) {
-                formError.hide()
-            }, function (err) {
-                formError.show(err)
-            })
-        })
-        $('#submit').on('click', function () {
+        // 由于绑定的是动态生成的html，所以需要用事件冒泡委托
+        $('.panel-body').on('click', '.btn-submit', function () {
             _this.submit()
         })
-        // 最后一步进行实时提醒，提高用户体验
-        $('.user-content').last().on('blur', function () {
+        // 实时提醒，提高用户体验
+        $('.panel-body').on('blur', 'input', function () {
             var formData = _this.getFormData()
             validateResult = _this.formValidate(formData)
             if (validateResult.status) {
@@ -48,18 +48,14 @@ var page = {
                 formError.show(validateResult.msg)
             }
         })
-        $('.user-content').on('keyup', function (e) {
-            if (e.keyCode === 13) {
-                _this.submit()
-            }
-        })
     },
     submit: function () {
         var formData = this.getFormData()
-        var validateResult = this.formValidate(formData)
+        validateResult = this.formValidate(formData)
         if (validateResult.status) {
-            _user.register(formData, function (data, msg) {
-                window.location.href = './result.html?type=register'
+            _user.updateUserInfo(formData, function (data, msg) {
+                util.successTips(msg)
+                window.location.href = './user-center.html'
             }, function (err) {
                 formError.show(err)
             })
@@ -68,37 +64,27 @@ var page = {
         }
     },
     getFormData: function () {
-        var formData = {
-            username: $.trim($('#username').val()),
-            password: $.trim($('#password').val()),
-            passwordConfirm: $.trim($('#password-confirm').val()),
+        var data = {
             phone: $.trim($('#phone').val()),
             email: $.trim($('#email').val()),
             question: $.trim($('#question').val()),
             answer: $.trim($('#answer').val()),
         }
-        return formData
+        return data
+    },
+    loadUserInfo: function () {
+        var userHtml = ''
+        _user.getUserInfo(function (data, msg) {
+            userHtml = util.renderHtml(template, data)
+            $('.panel-body').html(userHtml)
+        }, function (err) {
+            util.errorTips(err)
+        })
     },
     formValidate: function (formData) {
         var result = {
             status: false,
             msg: ''
-        }
-        if (!util.validate(formData.username, 'require')) {
-            result.msg = '用户名不能为空'
-            return result
-        }
-        if (!util.validate(formData.password, 'require')) {
-            result.msg = '密码不能为空'
-            return result
-        }
-        if (formData.password.length < 6) {
-            result.msg = '密码长度不能少于6位'
-            return result
-        }
-        if (formData.password !== formData.passwordConfirm) {
-            result.msg = '两次输入的密码不一致'
-            return result
         }
         if (!util.validate(formData.phone, 'phone')) {
             result.msg = '手机号格式不正确'

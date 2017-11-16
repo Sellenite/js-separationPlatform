@@ -2,7 +2,7 @@
  * @Author: Sellenite 
  * @Date: 2017-11-07 20:16:22 
  * @Last Modified by: Sellenite
- * @Last Modified time: 2017-11-08 21:03:10
+ * @Last Modified time: 2017-11-16 21:03:42
  */
 
 
@@ -46,6 +46,29 @@ input [type="checkbox"] {
     width: 1080px;
     margin: 0 auto;
     position: relative;
+    overflow: hidden;
+}
+
+
+/* 右侧panel */
+
+.panel {
+    box-sizing: border-box;
+    padding: 10px;
+    margin-bottom: 10px;
+    background: #FFF;
+}
+
+.panel .panel-title {
+    padding: 10px;
+    font-size: 14px;
+    color: #666;
+    font-weight: bold;
+    border-bottom: 1px solid #eee;
+}
+
+.panel .panel-body {
+    padding: 10px;
     overflow: hidden;
 }
 
