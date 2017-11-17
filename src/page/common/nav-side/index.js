@@ -2,7 +2,7 @@
  * @Author: Sellenite 
  * @Date: 2017-11-09 22:18:59 
  * @Last Modified by: Sellenite
- * @Last Modified time: 2017-11-09 23:04:28
+ * @Last Modified time: 2017-11-17 22:12:59
  */
 require('./index.css')
 var util = require('util/util.js')
@@ -22,9 +22,9 @@ var navSide = {
                 href: './order-list.html'
             },
             {
-                name: 'pass-update',
+                name: 'user-pass-update',
                 desc: '修改密码',
-                href: './pass-update.html'
+                href: './user-pass-update.html'
             },
             {
                 name: 'about',

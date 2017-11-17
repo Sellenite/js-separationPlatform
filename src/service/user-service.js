@@ -2,7 +2,7 @@
  * @Author: Sellenite 
  * @Date: 2017-11-08 22:11:51 
  * @Last Modified by: Sellenite
- * @Last Modified time: 2017-11-16 22:18:58
+ * @Last Modified time: 2017-11-17 23:00:18
  */
 var util = require('util/util.js')
 
@@ -71,7 +71,7 @@ var _user = {
             error: reject
         })
     },
-    // 根据token等信息重置密码，找回密码页面使用
+    // 非登录状态下根据token等信息重置密码，找回密码页面使用
     resetPassword: function (userInfo, resolve, reject) {
         util.request({
             url: util.getServerUrl('/user/forget_reset_password.do'),
@@ -81,7 +81,18 @@ var _user = {
             error: reject
         })
     },
+    // 登录状态下修改密码，修改密码页面使用
+    updatePassword: function (userInfo, resolve, reject) {
+        util.request({
+            url: util.getServerUrl('/user/reset_password.do'),
+            data: userInfo,
+            method: 'POST',
+            success: resolve,
+            error: reject
+        })
+    },
     // 获取个人信息，个人中心页面使用，未登录状态下请求会返回不同的状态码
+    // 所有需要载入用户信息的页面都要加载这个函数做验证
     getUserInfo: function (resolve, reject) {
         util.request({
             url: util.getServerUrl('/user/get_information.do'),
