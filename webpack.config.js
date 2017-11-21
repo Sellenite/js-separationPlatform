@@ -2,7 +2,7 @@
  * @Author: Sellenite 
  * @Date: 2017-11-03 19:41:26 
  * @Last Modified by: Sellenite
- * @Last Modified time: 2017-11-17 21:43:58
+ * @Last Modified time: 2017-11-21 21:00:16
  */
 var path = require('path')
 var webpack = require('webpack')
@@ -88,6 +88,8 @@ var config = {
                 loader: 'url-loader',
                 options: {
                     // 单位是byte
+                    // 超过这个值的化就保存为图片而不是用base64
+                    // html里也可以使用<%= require('../') %>进行图片的加载
                     limit: 8192,
                     name: 'resource/images/[name].[ext]'
                 }
