@@ -2,7 +2,7 @@
  * @Author: Sellenite 
  * @Date: 2017-11-26 00:00:47 
  * @Last Modified by: Sellenite
- * @Last Modified time: 2017-11-26 12:56:45
+ * @Last Modified time: 2017-11-26 13:52:59
  */
 require('./index.css')
 var util = require('util/util.js')
@@ -50,12 +50,26 @@ Pagination.prototype.getPaginationHtml = function () {
         value: this.option.prePage,
         isEnable: this.option.hasPreviousPage
     })
+    if (start !== 1) {
+        pageArray.push({
+            name: '...',
+            value: start - 1,
+            isEnable: true
+        })
+    }
     for (var i = start; i <= end; i++) {
         pageArray.push({
             name: i,
             value: i,
             isEnable: true,
             isActive: i === this.option.pageNum
+        })
+    }
+    if (end !== this.option.pages) {
+        pageArray.push({
+            name: '...',
+            value: end + 1,
+            isEnable: true
         })
     }
     pageArray.push({
@@ -66,11 +80,10 @@ Pagination.prototype.getPaginationHtml = function () {
     html = util.renderHtml(template, {
         pageArray: pageArray,
         pageNum: this.option.pageNum,
-        pages: this.option.pages
+        pages: this.option.pages,
+        hasPreviousPage: this.option.hasPreviousPage,
+        hasNextPage: this.option.hasNextPage
     })
-    console.log(start)
-    console.log(end)
-    console.log(pageArray)
     return html
 }
 

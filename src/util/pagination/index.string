@@ -1,5 +1,8 @@
 <div class="pg-content">
-    {{#pageArray}} 
+    {{#hasPreviousPage}}
+        <span class="pg-item" data-value="1">首页</span>
+    {{/hasPreviousPage}}
+    {{#pageArray}}
         {{^isEnable}}
             <span class="pg-item disabled" data-value="{{value}}">{{name}}</span>
         {{/isEnable}} 
@@ -12,5 +15,8 @@
             {{/isActive}}
         {{/isEnable}}
     {{/pageArray}}
+    {{#hasNextPage}}
+        <span class="pg-item" data-value="{{pages}}">末页</span>
+    {{/hasNextPage}}
     <span class="pg-total">{{pageNum}} / {{pages}}</span>
 </div>
