@@ -2,7 +2,7 @@
  * @Author: Sellenite 
  * @Date: 2017-11-08 21:43:50 
  * @Last Modified by: Sellenite
- * @Last Modified time: 2017-11-12 15:35:44
+ * @Last Modified time: 2017-11-25 14:41:29
  */
 require('./index.css')
 var util = require('util/util.js')
@@ -40,7 +40,7 @@ var nav = {
     },
     loadCartCount: function () {
         _cart.getCartCount(function (data, msg) {
-            $('.nav .cart-count').text(res || 0)
+            $('.nav .cart-count').text(data || 0)
         }, function (err) {
             $('.nav .cart-count').text(0)
         })

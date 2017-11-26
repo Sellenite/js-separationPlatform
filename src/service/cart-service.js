@@ -2,14 +2,14 @@
  * @Author: Sellenite 
  * @Date: 2017-11-08 23:36:50 
  * @Last Modified by: Sellenite
- * @Last Modified time: 2017-11-08 23:38:19
+ * @Last Modified time: 2017-11-25 14:40:06
  */
 var util = require('util/util.js')
 
 var _cart = {
     getCartCount: function (resolve, reject) {
         util.request({
-            url: util.getServerUrl('/cart/get_cart_product.do'),
+            url: util.getServerUrl('/cart/get_cart_product_count.do'),
             success: resolve,
             error: reject
         })

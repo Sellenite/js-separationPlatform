@@ -2,13 +2,14 @@
  * @Author: Sellenite 
  * @Date: 2017-11-09 19:53:06 
  * @Last Modified by: Sellenite
- * @Last Modified time: 2017-11-09 21:05:10
+ * @Last Modified time: 2017-11-25 14:45:08
  */
 require('./index.css')
 var util = require('util/util.js')
 
 var header = {
     init: function () {
+        this.onLoad()
         this.bindEvent()
     },
     onLoad: function () {
