@@ -1,0 +1,40 @@
+/*
+ * @Author: Sellenite 
+ * @Date: 2017-11-26 11:38:32 
+ * @Last Modified by: Sellenite
+ * @Last Modified time: 2017-11-27 22:57:32
+ */
+
+.pagination {
+    display: table;
+    margin: 0 auto;
+    color: #333;
+}
+
+.pagination .page-item {
+    display: inline-block;
+    height: 36px;
+    line-height: 36px;
+    padding: 0 15px;
+    margin: 0 2px;
+    border: 1px solid #ccc;
+    background: #eee;
+    cursor: pointer;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.pagination .page-item.disabled {
+    color: #ccc;
+    background: none;
+    cursor: auto;
+}
+
+.pagination .page-item.active {
+    border: 1px solid #c60023;
+    background: #c60023;
+    color: #FFF;
+    cursor: auto;
+}

@@ -2,7 +2,7 @@
  * @Author: Sellenite 
  * @Date: 2017-11-25 14:28:33 
  * @Last Modified by: Sellenite
- * @Last Modified time: 2017-11-27 22:54:19
+ * @Last Modified time: 2017-11-26 13:07:13
  */
 require('./index.css')
 require('page/common/nav/index.js')
@@ -10,9 +10,7 @@ require('page/common/header/index.js')
 var util = require('util/util.js')
 var _product = require('service/product-service.js')
 var template = require('./index.string')
-/* 使用自己开发的pagination */
-require('util/pagination-another/index.css')
-var Pagination = require('util/pagination-another/pagination.js')
+var Pagination = require('util/pagination/index.js')
 
 var page = {
     data: {
@@ -22,10 +20,7 @@ var page = {
             orderBy: util.getUrlParam('orderBy') || 'default',
             pageNum: util.getUrlParam('pageNum') || 1,
             pageSize: util.getUrlParam('pageSize') || 2
-        },
-        pageNum: 1,
-        pages: 1,
-        pageRange: 3
+        }
     },
     init: function () {
         this.onLoad()
@@ -70,16 +65,17 @@ var page = {
         $listContent.html(loading)
         listParam.categoryId ? (delete listParam.keyword) : (delete listParam.categoryId)
         _product.getProductList(listParam, function (data, msg) {
-            _this.data.pageNum = data.pageNum
-            _this.data.pages = data.pages
             listHtml = util.renderHtml(template, {
                 list: data.list
             })
             $listContent.html(listHtml)
             _this.loadPagination({
-                pageNum: _this.data.pageNum,
-                pages: _this.data.pages,
-                pageRange: _this.data.pageRange
+                hasPreviousPage: data.hasPreviousPage,
+                prePage: data.prePage,
+                hasNextPage: data.hasNextPage,
+                nextPage: data.nextPage,
+                pageNum: data.pageNum,
+                pages: data.pages
             })
         }, function (err) {
             uril.errorTips(err)
@@ -88,12 +84,10 @@ var page = {
     loadPagination: function (pageInfo) {
         var _this = this
         this.pagination ? '' : (this.pagination = new Pagination())
-        this.pagination.init($.extend({}, pageInfo, {
+        this.pagination.render($.extend({}, pageInfo, {
             container: $('.pagination'),
-            onSelectChange: function (pageNum, pages) {
+            onSelectChange: function (pageNum) {
                 _this.data.listParam.pageNum = pageNum
-                _this.data.pageNum = pageNum
-                _this.data.pages = pages
                 _this.loadList()
             }
         }))
