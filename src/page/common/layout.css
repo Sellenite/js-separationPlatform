@@ -2,7 +2,7 @@
  * @Author: Sellenite 
  * @Date: 2017-11-07 20:16:22 
  * @Last Modified by: Sellenite
- * @Last Modified time: 2017-11-16 21:03:42
+ * @Last Modified time: 2017-12-01 22:46:09
  */
 
 
@@ -11,6 +11,11 @@
 * {
     margin: 0;
     padding: 0;
+}
+
+html,
+body {
+    height: 100%;
 }
 
 body {
@@ -37,6 +42,11 @@ label {
 
 input [type="checkbox"] {
     cursor: pointer;
+}
+
+.client-wrapper {
+    min-height: 100%;
+    height: auto;
 }
 
 

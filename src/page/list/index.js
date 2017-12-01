@@ -2,7 +2,7 @@
  * @Author: Sellenite 
  * @Date: 2017-11-25 14:28:33 
  * @Last Modified by: Sellenite
- * @Last Modified time: 2017-11-27 22:54:19
+ * @Last Modified time: 2017-12-01 23:07:20
  */
 require('./index.css')
 require('page/common/nav/index.js')
@@ -21,7 +21,7 @@ var page = {
             categoryId: util.getUrlParam('categoryId') || '',
             orderBy: util.getUrlParam('orderBy') || 'default',
             pageNum: util.getUrlParam('pageNum') || 1,
-            pageSize: util.getUrlParam('pageSize') || 2
+            pageSize: util.getUrlParam('pageSize') || 20
         },
         pageNum: 1,
         pages: 1,

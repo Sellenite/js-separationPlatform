@@ -2,7 +2,7 @@
  * @Author: Sellenite 
  * @Date: 2017-11-27 18:47:29 
  * @Last Modified by: Sellenite
- * @Last Modified time: 2017-11-27 22:20:17
+ * @Last Modified time: 2017-12-01 22:59:15
  */
 
 /**
@@ -49,6 +49,8 @@
         this.option.pageNum === 1 ?
             this.option.hasPreviousPage = false :
             this.option.pageNum === this.option.pages ?
+            this.option.hasNextPage = false : ''
+        this.option.pageNum === 1 && this.option.pages === 1 ?
             this.option.hasNextPage = false : ''
         var pageArray = this.setArray()
         var html = this.render(pageArray)

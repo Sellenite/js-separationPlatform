@@ -2,12 +2,15 @@
  * @Author: Sellenite 
  * @Date: 2017-11-09 19:39:48 
  * @Last Modified by: Sellenite
- * @Last Modified time: 2017-11-09 19:41:02
+ * @Last Modified time: 2017-12-01 22:54:28
  */
 
 .footer {
-    margin-top: 20px;
+    position: relative;
+    margin-top: -90px;
+    padding-top: 20px;
     padding-bottom: 10px;
+    background-color: #f6f6f6;
 }
 
 .footer .links {

@@ -2,7 +2,7 @@
  * @Author: Sellenite 
  * @Date: 2017-11-26 11:38:32 
  * @Last Modified by: Sellenite
- * @Last Modified time: 2017-11-27 22:57:32
+ * @Last Modified time: 2017-12-01 23:06:46
  */
 
 .pagination {
@@ -24,6 +24,10 @@
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+.pagination .page-item.notshow {
+    display: none;
 }
 
 .pagination .page-item.disabled {
