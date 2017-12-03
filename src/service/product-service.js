@@ -2,7 +2,7 @@
  * @Author: Sellenite 
  * @Date: 2017-11-25 14:35:27 
  * @Last Modified by: Sellenite
- * @Last Modified time: 2017-11-25 16:12:09
+ * @Last Modified time: 2017-12-03 20:04:08
  */
 var util = require('util/util.js')
 
@@ -12,6 +12,17 @@ var _product = {
         util.request({
             url: util.getServerUrl('/product/list.do'),
             data: listParam,
+            success: resolve,
+            error: reject
+        })
+    },
+    // 获取商品详情，商品详情页使用
+    getProductDetail: function (productId, resolve, reject) {
+        util.request({
+            url: util.getServerUrl('/product/detail.do'),
+            data: {
+                productId: productId
+            },
             success: resolve,
             error: reject
         })

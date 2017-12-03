@@ -2,7 +2,7 @@
  * @Author: Sellenite 
  * @Date: 2017-11-03 19:41:26 
  * @Last Modified by: Sellenite
- * @Last Modified time: 2017-11-25 15:17:34
+ * @Last Modified time: 2017-12-03 16:07:11
  */
 var path = require('path')
 var webpack = require('webpack')
@@ -41,6 +41,7 @@ var config = {
         'common': ['./src/page/common/index.js'],
         'index': ['./src/page/index/index.js'],
         'list': ['./src/page/list/index.js'],
+        'detail': ['./src/page/detail/index.js'],
         'user-login': ['./src/page/user-login/index.js'],
         'user-register': ['./src/page/user-register/index.js'],
         'user-pass-reset': ['./src/page/user-pass-reset/index.js'],
@@ -71,6 +72,7 @@ var config = {
         // html模板处理，他会自动将link和script读取
         new HtmlWebpackPlugin(getHtmlConfig('index', '首页')),
         new HtmlWebpackPlugin(getHtmlConfig('list', '商品列表')),
+        new HtmlWebpackPlugin(getHtmlConfig('detail', '商品详情')),
         new HtmlWebpackPlugin(getHtmlConfig('user-login', '用户登录')),
         new HtmlWebpackPlugin(getHtmlConfig('user-register', '用户注册')),
         new HtmlWebpackPlugin(getHtmlConfig('user-pass-reset', '找回密码')),
