@@ -2,7 +2,7 @@
  * @Author: Sellenite 
  * @Date: 2017-11-25 14:28:33 
  * @Last Modified by: Sellenite
- * @Last Modified time: 2017-12-02 23:54:44
+ * @Last Modified time: 2017-12-05 20:33:29
  */
 require('./index.css')
 require('page/common/nav/index.js')
@@ -82,7 +82,7 @@ var page = {
                 pageRange: _this.data.pageRange
             })
         }, function (err) {
-            uril.errorTips(err)
+            util.errorTips(err)
         })
     },
     loadPagination: function (pageInfo) {

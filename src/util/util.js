@@ -2,7 +2,7 @@
  * @Author: Sellenite 
  * @Date: 2017-11-06 18:54:31 
  * @Last Modified by: Sellenite
- * @Last Modified time: 2017-11-16 20:53:32
+ * @Last Modified time: 2017-12-10 18:17:43
  */
 var conf = {
     // 这里填后台完整域名，由于现在在开发阶段，
@@ -62,8 +62,7 @@ var util = {
     },
     // 失败提示
     errorTips: function (err) {
-        /* alert(err || '操作失败') */
-        console.log(err || '操作失败')
+        alert(err || '操作失败')
     },
     // 字段验证
     validate: function (value, type) {

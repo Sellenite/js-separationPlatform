@@ -2,7 +2,7 @@
  * @Author: Sellenite 
  * @Date: 2017-12-03 16:09:59 
  * @Last Modified by: Sellenite
- * @Last Modified time: 2017-12-03 22:36:05
+ * @Last Modified time: 2017-12-10 14:39:24
  */
 require('./index.css')
 require('page/common/nav/index.js')
@@ -37,8 +37,9 @@ var page = {
             var type = $(this).hasClass('plus') ? 'plus' : 'minus'
             var $pCount = $('.p-count')
             var currCount = parseInt($pCount.val())
-            var minCount = 1
-            var maxCount = _this.data.stock || 1
+            // 有库存的时候使用最低数量为1，否则为0
+            var minCount = !!_this.data.stock ? 1 : 0
+            var maxCount = _this.data.stock
             if (type === 'plus') {
                 $pCount.val(currCount < maxCount ? currCount + 1 : maxCount)
             } else {
@@ -46,6 +47,10 @@ var page = {
             }
         })
         $(document).on('click', '.cart-add', function () {
+            if (!parseInt($('.p-count').val())) {
+                util.errorTips('请至少添加一件商品')
+                return
+            }
             // 没有登录会请求到status为10，跳转到登录页
             _cart.addToCart({
                 productId: _this.data.productId,

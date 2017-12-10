@@ -24,7 +24,12 @@
         </div>
         <div class="p-info-item p-count-con">
             <span class="label">数量:</span>
-            <input class="p-count" value="1" readonly=""/>
+            {{#stock}}
+                <input class="p-count" value="1" readonly=""/>
+            {{/stock}}
+            {{^stock}}
+                <input class="p-count" value="0" readonly=""/>
+            {{/stock}}
             <span class="p-count-btn plus">+</span>
             <span class="p-count-btn minus">-</span>
         </div>
