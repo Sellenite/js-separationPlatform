@@ -2,7 +2,7 @@
  * @Author: Sellenite 
  * @Date: 2017-11-25 14:28:33 
  * @Last Modified by: Sellenite
- * @Last Modified time: 2017-12-05 20:33:29
+ * @Last Modified time: 2018-01-01 12:48:49
  */
 require('./index.css')
 require('page/common/nav/index.js')
@@ -16,6 +16,7 @@ var Pagination = require('util/pagination-another/pagination.js')
 
 var page = {
     data: {
+        // 请求后台使用的对象
         listParam: {
             keyword: util.getUrlParam('keyword') || '',
             categoryId: util.getUrlParam('categoryId') || '',
@@ -23,6 +24,7 @@ var page = {
             pageNum: util.getUrlParam('pageNum') || 1,
             pageSize: util.getUrlParam('pageSize') || 10
         },
+        // pagination使用的属性
         pageNum: 1,
         pages: 1,
         pageRange: 3

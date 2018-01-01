@@ -2,7 +2,7 @@
  * @Author: Sellenite 
  * @Date: 2017-12-06 23:09:21 
  * @Last Modified by: Sellenite
- * @Last Modified time: 2017-12-10 18:27:29
+ * @Last Modified time: 2017-12-10 18:58:08
  */
 require('./index.css')
 require('page/common/header/index.js')
@@ -124,7 +124,7 @@ var page = {
         // 提交购物车
         $(document).on('click', '.btn-submit', function () {
             if (_this.data.cartInfo && _this.data.cartInfo.cartTotalPrice > 0) {
-                window.location.href = './confirm.html'
+                window.location.href = './order-confirm.html'
             } else {
                 util.errorTips('请选中商品后再提交')
             }
