@@ -1,0 +1,164 @@
+/*
+ * @Author: Sellenite 
+ * @Date: 2017-11-08 21:36:24 
+ * @Last Modified by: Sellenite
+ * @Last Modified time: 2017-11-08 21:41:30
+ */
+
+.nav {
+    background: #eee;
+    height: 30px;
+    line-height: 30px;
+}
+
+.nav .user {
+    float: left;
+}
+
+.nav .user.login {
+    float: left;
+    display: none;
+}
+
+.nav .user .link {
+    margin-right: 5px;
+}
+
+.nav .nav-list {
+    float: right;
+}
+
+.nav .nav-list .nav-item {
+    display: inline-block;
+    margin-left: 5px;
+}/*
+ * @Author: Sellenite 
+ * @Date: 2017-11-09 19:51:09 
+ * @Last Modified by:   Sellenite 
+ * @Last Modified time: 2017-11-09 19:51:09 
+ */
+
+
+/* 通用头部导航 */
+
+.header .logo {
+    position: absolute;
+    left: 60px;
+    top: 34px;
+    display: block;
+    font-size: 36px;
+    color: #c60023;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.header .search-con {
+    padding: 40px 0 30px 250px;
+}
+
+.header .search-con .search-input {
+    width: 550px;
+    height: 40px;
+    line-height: 40px;
+    padding-left: 10px;
+    font-size: 15px;
+    border: 2px solid #c60023;
+    outline: none;
+}
+
+.header .search-con .search-btn {
+    position: absolute;
+    height: 44px;
+    width: 80px;
+}
+
+
+/* 面包屑导航 */
+
+.crumb {
+    margin-bottom: 15px;
+    height: 50px;
+    line-height: 50px;
+    background: #eee;
+    color: #888;
+    font-size: 14px;
+    border-top: 2px solid #c60023;
+}/*
+ * @Author: Sellenite 
+ * @Date: 2017-11-09 22:18:44 
+ * @Last Modified by:   Sellenite 
+ * @Last Modified time: 2017-11-09 22:18:44 
+ */
+
+
+/* 导航主体 */
+
+.nav-side {
+    float: left;
+    width: 130px;
+    min-height: 100px;
+}
+
+.nav-side .nav-item {
+    line-height: 25px;
+    font-size: 13px;
+}
+
+.nav-side .nav-item .link {
+    color: #888;
+}
+
+.nav-side .nav-item.active .link {
+    color: #c60023;
+}
+
+
+/* 右侧内容区 */
+
+.content.with-nav {
+    float: left;
+    width: 950px;
+}/*
+ * @Author: Sellenite 
+ * @Date: 2017-11-16 20:39:17 
+ * @Last Modified by: Sellenite
+ * @Last Modified time: 2017-11-16 22:31:25
+ */
+
+.form-line {
+    margin-bottom: 10px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+}
+
+.form-line .label {
+    display: inline-block;
+    width: 60px;
+    text-align: center;
+}
+
+.form-line .input {
+    height: 25px;
+    line-height: 25px;
+    width: 200px;
+    font-size: 14px;
+}
+
+.error-item {
+    position: relative;
+    padding: 4px 0 4px 40px;
+    margin-bottom: 10px;
+    border: 1px solid red;
+    color: red;
+    background: #fde9e9;
+    display: none;
+}
+
+.error-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    font-size: 14px;
+    margin-top: -7px;
+}

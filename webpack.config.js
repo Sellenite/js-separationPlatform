@@ -2,7 +2,7 @@
  * @Author: Sellenite 
  * @Date: 2017-11-03 19:41:26 
  * @Last Modified by: Sellenite
- * @Last Modified time: 2018-01-01 18:34:42
+ * @Last Modified time: 2018-01-05 23:32:39
  */
 var path = require('path')
 var webpack = require('webpack')
@@ -27,6 +27,7 @@ function getHtmlConfig(name, title) {
         template: './src/view/' + name + '.html',
         filename: 'view/' + name + '.html',
         title: title,
+        favicon: './favicon.ico',
         // js文件插入到body最后
         inject: true,
         hash: true,
@@ -53,14 +54,17 @@ var config = {
         'user-pass-update': ['./src/page/user-pass-update/index.js'],
         'user-center': ['./src/page/user-center/index.js'],
         'user-center-update': ['./src/page/user-center-update/index.js'],
-        'result': ['./src/page/result/index.js']
+        'result': ['./src/page/result/index.js'],
+        'about': ['./src/page/about/index.js']
     },
     output: {
         // __dirname：    获得当前config文件的绝对路径
         path: path.resolve(__dirname, 'dist'),
         filename: 'js/[name].js',
         // 用于webpack-dev-server编译存在的内存中，有别于path，编译路径相同
-        publicPath: '/assets/'
+        // 静态资源的路径都会取publicPath
+        // 以后如果换域名保存资源，直接在这里配置就可以了
+        publicPath: 'dev' === WEBPACK_ENV ? '/dist/' : '//s.happymmall.com/mmall-fe/dist/'
     },
     externals: {
         'jquery': 'window.jQuery'
@@ -89,7 +93,8 @@ var config = {
         new HtmlWebpackPlugin(getHtmlConfig('user-pass-update', '修改密码')),
         new HtmlWebpackPlugin(getHtmlConfig('user-center', '用户中心')),
         new HtmlWebpackPlugin(getHtmlConfig('user-center-update', '修改个人信息')),
-        new HtmlWebpackPlugin(getHtmlConfig('result', '操作结果'))
+        new HtmlWebpackPlugin(getHtmlConfig('result', '操作结果')),
+        new HtmlWebpackPlugin(getHtmlConfig('about', '关于我们'))
     ],
     module: {
         loaders: [{

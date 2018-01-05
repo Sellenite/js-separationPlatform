@@ -1,0 +1,394 @@
+/*
+ * @Author: Sellenite 
+ * @Date: 2017-11-20 23:01:20 
+ * @Last Modified by:   Sellenite 
+ * @Last Modified time: 2017-11-20 23:01:20 
+ */
+
+
+/* keywords-list */
+
+.keywords-list {
+    float: left;
+    width: 240px;
+    height: 350px;
+    padding: 10px 0;
+    margin-right: 10px;
+    background: #666;
+    color: #fff;
+}
+
+.keywords-list .keywords-item {
+    padding-left: 10px;
+    height: 35px;
+    line-height: 35px;
+    font-size: 14px;
+}
+
+.keywords-list .keywords-item:hover {
+    background: #999;
+}
+
+.keywords-list .keywords-item .link {
+    margin-right: 6px;
+    color: #fff;
+}
+
+.keywords-list .keywords-item .link:hover {
+    color: #c60023;
+}
+
+
+/* banner-con */
+
+.banner-con {
+    width: 830px;
+    float: left;
+    height: 370px;
+    background: #eee;
+}
+
+.banner-con .loading {
+    margin-top: 150px;
+}
+
+.banner-con .banner-img {
+    width: 100%;
+    height: 370px;
+}
+
+
+/* banner的前一张和后一张按钮 */
+
+.banner-con .banner-arrow {
+    position: absolute;
+    top: 160px;
+    width: 30px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 30px;
+    color: #fff;
+    background: #ccc;
+    background: rgba(0, 0, 0, .2);
+    cursor: pointer;
+}
+
+.banner-con .banner-arrow:hover {
+    background: #aaa;
+    background: rgba(0, 0, 0, .5);
+}
+
+.banner-con .banner-arrow.prev {
+    left: 0;
+}
+
+.banner-con .banner-arrow.next {
+    right: 0;
+}
+
+
+/* floor */
+
+.floor-wrap .floor-title {
+    height: 50px;
+    line-height: 50px;
+    color: #d58717;
+    font-weight: normal;
+    font-size: 20px;
+    border-bottom: 1px solid #d58717;
+}
+
+
+/* 更改各楼层标题颜色 */
+
+.floor-wrap:nth-child(2) .floor-title {
+    color: #3b838c;
+    border-bottom: 1px solid #3b838c;
+}
+
+.floor-wrap:nth-child(3) .floor-title {
+    color: #a93931;
+    border-bottom: 1px solid #a93931;
+}
+
+.floor-wrap:nth-child(4) .floor-title {
+    color: #488bad;
+    border-bottom: 1px solid #488bad;
+}
+
+.floor-wrap:nth-child(5) .floor-title {
+    color: #642663;
+    border-bottom: 1px solid #642663;
+}
+
+.floor-wrap .floor-list {
+    margin-right: -20px;
+    overflow: hidden;
+}
+
+.floor-wrap .floor-list .floor-item {
+    position: relative;
+    width: 200px;
+    height: 220px;
+    margin: 15px 20px 15px 0;
+    float: left;
+    cursor: pointer;
+    background: #fff;
+}
+
+.floor-wrap .floor-list .floor-item:hover {
+    box-shadow: 1px 1px 7px #ddd;
+}
+
+.floor-wrap .floor-list .floor-item .floor-text {
+    position: absolute;
+    top: 12px;
+    left: 20px;
+    font-size: 16px;
+    color: #555;
+}
+
+.floor-wrap .floor-list .floor-item .floor-img {
+    position: absolute;
+    right: 15px;
+    bottom: 10px;
+    width: 80%;
+    height: 75%;
+    border: none;
+}/*
+ * @Author: Sellenite 
+ * @Date: 2017-11-08 21:36:24 
+ * @Last Modified by: Sellenite
+ * @Last Modified time: 2017-11-08 21:41:30
+ */
+
+.nav {
+    background: #eee;
+    height: 30px;
+    line-height: 30px;
+}
+
+.nav .user {
+    float: left;
+}
+
+.nav .user.login {
+    float: left;
+    display: none;
+}
+
+.nav .user .link {
+    margin-right: 5px;
+}
+
+.nav .nav-list {
+    float: right;
+}
+
+.nav .nav-list .nav-item {
+    display: inline-block;
+    margin-left: 5px;
+}/*
+ * @Author: Sellenite 
+ * @Date: 2017-11-09 19:51:09 
+ * @Last Modified by:   Sellenite 
+ * @Last Modified time: 2017-11-09 19:51:09 
+ */
+
+
+/* 通用头部导航 */
+
+.header .logo {
+    position: absolute;
+    left: 60px;
+    top: 34px;
+    display: block;
+    font-size: 36px;
+    color: #c60023;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.header .search-con {
+    padding: 40px 0 30px 250px;
+}
+
+.header .search-con .search-input {
+    width: 550px;
+    height: 40px;
+    line-height: 40px;
+    padding-left: 10px;
+    font-size: 15px;
+    border: 2px solid #c60023;
+    outline: none;
+}
+
+.header .search-con .search-btn {
+    position: absolute;
+    height: 44px;
+    width: 80px;
+}
+
+
+/* 面包屑导航 */
+
+.crumb {
+    margin-bottom: 15px;
+    height: 50px;
+    line-height: 50px;
+    background: #eee;
+    color: #888;
+    font-size: 14px;
+    border-top: 2px solid #c60023;
+}/*
+ * @Author: Sellenite 
+ * @Date: 2017-11-21 22:19:30 
+ * @Last Modified by: Sellenite
+ * @Last Modified time: 2017-11-21 22:50:33
+ */
+
+.unslider {
+    overflow: auto;
+    position: relative;
+    margin: 0;
+    padding: 0
+}
+
+.unslider-wrap {
+    position: relative
+}
+
+.unslider-wrap.unslider-carousel>li {
+    float: left
+}
+
+.unslider-vertical>ul {
+    height: 100%
+}
+
+.unslider-vertical li {
+    float: none;
+    width: 100%
+}
+
+.unslider-fade {
+    position: relative
+}
+
+.unslider-fade .unslider-wrap li {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    z-index: 8
+}
+
+.unslider-fade .unslider-wrap li.unslider-active {
+    z-index: 10
+}
+
+.unslider li,
+.unslider ol,
+.unslider ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border: none
+}
+
+.unslider-arrow {
+    position: absolute;
+    left: 20px;
+    z-index: 2;
+    cursor: pointer;
+    display: none;
+}
+
+.unslider-arrow.next {
+    left: auto;
+    right: 20px
+}
+
+
+/**
+ *   Here's where everything gets included. You don't need
+ *   to change anything here, and doing so might break
+ *   stuff. Here be dragons and all that.
+ */
+
+
+/**
+ *   Default variables
+ *
+ *   While these can be set with JavaScript, it's probably
+ *   better and faster to just set them here, compile to
+ *   CSS and include that instead to use some of that
+ *   hardware-accelerated goodness.
+ */
+
+.unslider-nav {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+}
+
+.unslider-nav ol {
+    list-style: none;
+    display: table;
+    margin: 0 auto;
+}
+
+.unslider-nav ol li {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    margin: 0 4px;
+    background: transparent;
+    border-radius: 5px;
+    overflow: hidden;
+    text-indent: -999em;
+    border: 2px solid #fff;
+    cursor: pointer;
+}
+
+.unslider-nav ol li.unslider-active {
+    background: #fff;
+    cursor: default;
+}/*
+ * @Author: Sellenite 
+ * @Date: 2017-11-09 22:18:44 
+ * @Last Modified by:   Sellenite 
+ * @Last Modified time: 2017-11-09 22:18:44 
+ */
+
+
+/* 导航主体 */
+
+.nav-side {
+    float: left;
+    width: 130px;
+    min-height: 100px;
+}
+
+.nav-side .nav-item {
+    line-height: 25px;
+    font-size: 13px;
+}
+
+.nav-side .nav-item .link {
+    color: #888;
+}
+
+.nav-side .nav-item.active .link {
+    color: #c60023;
+}
+
+
+/* 右侧内容区 */
+
+.content.with-nav {
+    float: left;
+    width: 950px;
+}
